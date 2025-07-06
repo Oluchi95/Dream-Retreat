@@ -126,6 +126,75 @@
             width: 100%;
         }
         
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: var(--dark);
+            z-index: 1000;
+            transition: right 0.4s ease-in-out;
+            padding: 80px 20px 20px;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+        }
+        
+        .mobile-nav.active {
+            right: 0;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+        }
+        
+        .mobile-nav li {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: var(--transition);
+        }
+        
+        .mobile-nav a:hover {
+            color: var(--accent);
+            padding-left: 10px;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -460,7 +529,6 @@
         
         .social-links a {
             display: flex;
-            text-decoration: none;
             align-items: center;
             justify-content: center;
             width: 40px;
@@ -485,6 +553,12 @@
         }
         
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -496,11 +570,20 @@
             
             .mobile-menu-btn {
                 display: block;
-                background: none;
-                border: none;
-                color: white;
-                font-size: 1.5rem;
-                cursor: pointer;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
             }
         }
         
@@ -619,9 +702,12 @@
                     <li><a href="#" id="contactBtn">Contact</a></li>
                 </ul>
             </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
-
+    
     <!-- Mobile Navigation -->
     <div class="overlay" id="overlay"></div>
     <div class="mobile-nav" id="mobileNav">
@@ -657,7 +743,7 @@
             <div class="features-grid">
                 <div class="feature-card fade-in">
                     <div class="feature-img">
-                        <img src="https://plus.unsplash.com/premium_photo-1674917000586-b7564f21540e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG1vdW50YWlufGVufDB8fDB8fHww" alt="Panoramic Views">
+                        <img src="https://plus.unsplash.com/premium_photo-1674917000586-b7564f21540e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG1vdW50YWlufGVufDB8fDB8fHww"  alt="Panoramic Views">
                     </div>
                     <div class="feature-content">
                         <h3>Breathtaking Panoramic Views</h3>
@@ -668,7 +754,7 @@
                 
                 <div class="feature-card fade-in">
                     <div class="feature-img">
-                        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Infinity Pool">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Infinity Pool">
                     </div>
                     <div class="feature-content">
                         <h3>Heated Infinity Pool</h3>
@@ -679,7 +765,7 @@
                 
                 <div class="feature-card fade-in">
                     <div class="feature-img">
-                        <img src="https://images.unsplash.com/photo-1711896099542-53253887088a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fFR3byUyMFN0b3J5JTIwU2VjcmV0JTIwTGlicmFyeXxlbnwwfHwwfHx8MA%3D%3D" alt="Library">
+                        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Library">
                     </div>
                     <div class="feature-content">
                         <h3>Two-Story Secret Library</h3>
@@ -732,7 +818,7 @@
         <div class="container">
             <div class="section-title fade-in">
                 <h2>What Our Residents Say</h2>
-                <p>Hear from those who have made Dream Retreat their home</p>
+                <p>Hear from those who've made Dream Retreat their home</p>
             </div>
             
             <div class="testimonial-container">
@@ -906,6 +992,12 @@
         contactBtn.addEventListener('click', (e) => {
             e.preventDefault();
             openModal();
+        });
+        
+        mobileContactBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+            toggleMobileMenu(); // Close mobile menu when contact is clicked
         });
         
         scheduleTourBtn.addEventListener('click', (e) => {
