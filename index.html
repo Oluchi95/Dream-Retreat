@@ -622,6 +622,18 @@
         </div>
     </header>
 
+    <!-- Mobile Navigation -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#" id="mobileContactBtn">Contact</a></li>
+        </ul>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content fade-in">
@@ -827,6 +839,33 @@
     </div>
 
     <script>
+        // Mobile Navigation
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const overlay = document.getElementById('overlay');
+        const mobileContactBtn = document.getElementById('mobileContactBtn');
+        
+        function toggleMobileMenu() {
+            mobileNav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            
+            // Change hamburger icon to X when menu is open
+            if (mobileNav.classList.contains('active')) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        }
+        
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        overlay.addEventListener('click', toggleMobileMenu);
+        
+        // Close mobile menu when a link is clicked
+        const mobileNavLinks = mobileNav.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+        
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
