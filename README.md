@@ -1,4 +1,4 @@
-# Dream Mountain Retreat - Luxury Landing Page
+# Dream Retreat - Luxury Landing Page
 
 A visually captivating landing page for a luxury mountain retreat home, featuring modern design principles, smooth animations, and responsive layouts. Perfect for showcasing your dream home concept!
 
